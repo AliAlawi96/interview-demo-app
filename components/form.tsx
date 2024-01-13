@@ -56,7 +56,7 @@ const Form = ({
 			className="w-full max-w-6xl flex flex-col items-center "
 			onSubmit={handleSubmit(onSubmit)}
 		>
-			<div className=" bg-slate-100 gap-12 p-12 rounded-xl shadow-lg w-full md:w-1/2">
+			<div className=" bg-slate-100 gap-12 p-12 rounded-xl shadow-lg w-full md:w-2/3">
 				<header>
 					<h1 className="text-2xl">Register your artwork</h1>
 				</header>
@@ -70,7 +70,7 @@ const Form = ({
 								Title of your artwork
 							</label>
 							<div className="mt-2">
-								<div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600 sm:max-w-md">
+								<div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300  outline-none sm:max-w-md">
 									<input
 										{...register("title")}
 										type="text"
@@ -95,7 +95,7 @@ const Form = ({
 								Artist
 							</label>
 							<div className="mt-2">
-								<div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600 sm:max-w-md">
+								<div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300  outline-none sm:max-w-md">
 									<input
 										{...register("artist")}
 										type="text"
@@ -121,7 +121,7 @@ const Form = ({
 								Year of Production
 							</label>
 							<div className="mt-2">
-								<div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600 sm:max-w-md">
+								<div className="flex rounded-md shadow-sm ">
 									<input
 										{...register("production_year")}
 										type="number"
@@ -148,14 +148,10 @@ const Form = ({
 							</label>
 							<div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
 								<div className="text-center">
-									{/* <PhotoIcon
-										className="mx-auto h-12 w-12 text-gray-300"
-										aria-hidden="true"
-									/> */}
 									<div className="mt-4 flex text-sm leading-6 text-gray-600">
 										<label
 											htmlFor="image"
-											className="relative cursor-pointer rounded-md bg-white font-semibold text-blue-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 hover:text-blue-500"
+											className="relative cursor-pointer rounded-md bg-white font-semibold text-blue-600 "
 										>
 											<span>Upload a file</span>
 											<input

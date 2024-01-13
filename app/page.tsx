@@ -11,7 +11,13 @@ export default function Home() {
 
 	useEffect(() => {
 		const storedArtworks = localStorage.getItem("listOfArtworks");
-		storedArtworks && setListOfArtworks(JSON.parse(storedArtworks));
+		storedArtworks &&
+			setListOfArtworks(
+				JSON.parse(storedArtworks).sort(
+					(a: TsubmitAnArtworkSchema, b: TsubmitAnArtworkSchema) =>
+						a.artist > b.artist ? 1 : -1
+				)
+			);
 	}, []);
 
 	return (
@@ -23,7 +29,10 @@ export default function Home() {
 				listOfArtworks={listOfArtworks}
 				setListOfArtworks={setListOfArtworks}
 			/>
-			<Table listOfArtworks={listOfArtworks} />
+			<Table
+				listOfArtworks={listOfArtworks}
+				setListOfArtworks={setListOfArtworks}
+			/>
 		</main>
 	);
 }

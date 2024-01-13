@@ -1,10 +1,22 @@
 import { TsubmitAnArtworkSchema } from "@/lib/types";
+import User from "./user";
 
 const Table = ({
 	listOfArtworks,
+	setListOfArtworks,
 }: {
 	listOfArtworks: TsubmitAnArtworkSchema[];
+	setListOfArtworks: any;
 }) => {
+	const handleClick = (deletedUser: string) => {
+		console.log(deletedUser);
+		const newArray = listOfArtworks.filter(
+			(user) => user.title !== deletedUser
+		);
+		localStorage.setItem("listOfArtworks", JSON.stringify([...newArray]));
+		setListOfArtworks([...newArray]);
+	};
+
 	return (
 		<div className="bg-slate-100 gap-12 px-2 py-4 md:p-12 rounded-xl shadow-lg w-full lg:w-2/3 mb-20">
 			<div className="sm:flex sm:items-center">
@@ -48,40 +60,14 @@ const Table = ({
 									listOfArtworks.length > 0 &&
 									listOfArtworks.map(
 										(
-											Artwork: TsubmitAnArtworkSchema,
+											artwork: TsubmitAnArtworkSchema,
 											index: number
 										) => (
-											<tr
+											<User
 												key={index}
-												className=" p-4 w-full grid grid-cols-3"
-											>
-												<td className="flex items-center w-full text-sm sm:pl-0">
-													<div className="flex items-center">
-														<div className="h-11 w-11 flex-shrink-0">
-															<img
-																className="h-11 w-11 rounded-full object-cover"
-																src={
-																	Artwork.imageURL
-																}
-																alt=""
-															/>
-														</div>
-														<div className="flex items-center ml-4">
-															<div className="font-medium text-blue-900">
-																{Artwork.title}
-															</div>
-														</div>
-													</div>
-												</td>
-												<td className="flex items-center w-full text-sm text-blue-900">
-													<div className="text-blue-900">
-														{Artwork.artist}
-													</div>
-												</td>
-												<td className="flex items-center text-sm text-blue-900">
-													{Artwork.production_year}
-												</td>
-											</tr>
+												artwork={artwork}
+												handleClick={handleClick}
+											/>
 										)
 									)}
 							</tbody>
