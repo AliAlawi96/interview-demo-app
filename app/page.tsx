@@ -15,7 +15,7 @@ export default function Home() {
 	}, []);
 
 	return (
-		<main className="flex grow  flex-col items-center w-full justify-center gap-40 p-8 md:p-20 bg-blue-200 ">
+		<main className="flex grow  flex-col items-center w-full justify-center gap-40 p-8 md:p-20 bg-gradient-to-br from-slate-100 to-blue-200 ">
 			<h1 className="  text-4xl font-bold text-gray-900">
 				Welcome to my demo!
 			</h1>
